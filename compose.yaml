@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  cart-service:
+    build:
+      context: ./cart-ms
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - gateway
+      - user-service
+
+  user-service:
+    build:
+      context: ./user-ms
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - gateway
+
+  gateway:
+    build:
+      context: .
+    ports:
+      - 80:80
