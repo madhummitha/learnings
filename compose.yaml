@@ -8,7 +8,6 @@ services:
       NODE_ENV: production
     depends_on:
       - gateway
-      - user-service
 
   user-service:
     build:
